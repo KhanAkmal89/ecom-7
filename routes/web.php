@@ -23,6 +23,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'index']);
 Route::post('/add/to/cart/{id}', [CartController::class, 'addToCart']);
 Route::get('/remove/cart/product/{id}', [CartController::class, 'removeCartProduct']);
+Route::get('/cart-products', [CartController::class, 'CartProducts']);
+Route::post('/cart-update/{id}', [CartController::class, 'CartProductUpdate']);
+Route::get('/checkout', [CartController::class, 'checkout']);
+
 
 
 Route::get('/admin/login',[AdminController::class, 'adminLoginForm']);

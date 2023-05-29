@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Cart;
+use App\Models\Category;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -26,5 +29,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+
+        View::composer('*', function($view){
+            $view->with('cart', Cart::with('product')->orderBy('id', 'desc')->where('ip_address', request()->ip())->get());
+            $view->with('categories', Category::orderBy('created_at', 'desc')->get());
+
+        });
     }
 }
