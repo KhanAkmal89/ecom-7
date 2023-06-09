@@ -28,9 +28,9 @@
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> 
+                  <li class="nav-item">
                     <a class="nav-link" href="{{ url('/category/add') }}">Add</a></li>
-                  <li class="nav-item"> 
+                  <li class="nav-item">
                     <a class="nav-link" href="{{ url('/category/manage') }}">Manage</a></li>
                 </ul>
               </div>
@@ -44,9 +44,9 @@
               </a>
               <div class="collapse" id="brand">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> 
+                  <li class="nav-item">
                     <a class="nav-link" href="{{ url('/brand/add') }}">Add</a></li>
-                  <li class="nav-item"> 
+                  <li class="nav-item">
                     <a class="nav-link" href="{{ url('/brand/manage') }}">Manage</a></li>
                 </ul>
               </div>
@@ -60,13 +60,31 @@
               </a>
               <div class="collapse" id="product">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> 
+                  <li class="nav-item">
                     <a class="nav-link" href="{{ url('/product/add') }}">Add</a></li>
-                  <li class="nav-item"> 
+                  <li class="nav-item">
                     <a class="nav-link" href="{{ url('/product/manage') }}">Manage</a></li>
                 </ul>
               </div>
             </li>
-            
+
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#orders" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Orders</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+              </a>
+              <div class="collapse" id="orders">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/order/today') }}">Today Orders</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/order/all') }}">All Orders</a>
+                </li>
+                </ul>
+              </div>
+            </li>
+
           </ul>
         </nav>

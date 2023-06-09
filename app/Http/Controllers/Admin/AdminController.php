@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use \App\Models\Admin;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -15,7 +18,12 @@ class AdminController extends Controller
 
     public function adminaDashboard()
     {
-        return view('admin.home.dashboard');
+        $data = [
+            'products' => Product::get()->count(),
+            'orders' => Order::get()->count(),
+            'customers' => User::get()->count(),
+        ];
+        return view('admin.home.dashboard', compact('data'));
     }
 
     public function adminLogin(Request $request)

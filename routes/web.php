@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
@@ -26,6 +27,8 @@ Route::get('/remove/cart/product/{id}', [CartController::class, 'removeCartProdu
 Route::get('/cart-products', [CartController::class, 'CartProducts']);
 Route::post('/cart-update/{id}', [CartController::class, 'CartProductUpdate']);
 Route::get('/checkout', [CartController::class, 'checkout']);
+Route::post('/complete/checkout', [CartController::class, 'completeCheckout']);
+
 
 
 
@@ -59,6 +62,11 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('product/edit/{id}', [ProductController::class, 'editProduct']);
     Route::post('product/update/{id}', [ProductController::class, 'updateProduct']);
     Route::get('product/delete/{id}', [ProductController::class, 'deleteProduct']);
+
+    //Orders route
+    Route::get('/order/today', [OrderController::class, 'todayOrders']);
+    Route::get('/order/all', [OrderController::class, 'allOrders']);
+
 
 
 });
