@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Brand;
 use App\Models\Cart;
 use App\Models\Category;
 use Illuminate\Pagination\Paginator;
@@ -33,6 +34,8 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function($view){
             $view->with('cart', Cart::with('product')->orderBy('id', 'desc')->where('ip_address', request()->ip())->get());
             $view->with('categories', Category::orderBy('created_at', 'desc')->get());
+            $view->with('brands', Brand::orderBy('created_at', 'desc')->get());
+
 
         });
     }

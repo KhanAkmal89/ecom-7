@@ -12,7 +12,7 @@
                                     <th>Sl</th>
                                     <th>Customer Name</th>
                                     <th>Customer Phone</th>
-                                    <th>Category Name</th>
+                                    <th>Total Price</th>
                                     <th>Total Qty</th>
                                     <th>Action</th>
                                 </tr>

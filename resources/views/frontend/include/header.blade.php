@@ -158,7 +158,7 @@
                                 <nav class="side-nav">
                                     <ul class="menu-vertical sf-arrows">
                                         @foreach($categories as $category)
-                                            <li><a href="#">{{ Str::ucfirst($category->name) }}</a></li>
+                                            <li><a href="{{ url('/category/products/'.$category->id) }}">{{ Str::ucfirst($category->name) }}</a></li>
                                         @endforeach
 
                                     </ul><!-- End .menu-vertical -->

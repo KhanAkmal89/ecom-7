@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontendController::class, 'index']);
+Route::get('/category/products/{id}', [FrontendController::class, 'categoryProduct']);
 Route::post('/add/to/cart/{id}', [CartController::class, 'addToCart']);
 Route::get('/remove/cart/product/{id}', [CartController::class, 'removeCartProduct']);
 Route::get('/cart-products', [CartController::class, 'CartProducts']);
@@ -66,6 +67,10 @@ Route::group(['middleware' => 'admin'], function(){
     //Orders route
     Route::get('/order/today', [OrderController::class, 'todayOrders']);
     Route::get('/order/all', [OrderController::class, 'allOrders']);
+    Route::get('/order/details/{id}', [OrderController::class, 'orderDetails']);
+    Route::get('/download/pdf/{id}', [OrderController::class, 'pdfDownload']);
+
+
 
 
 

@@ -21,4 +21,10 @@ class FrontendController extends Controller
         ];
         return view('frontend.home.index', compact('data'));
     }
+
+    public function categoryProduct($id)
+    {
+        $products = Product::with('category')->where('category_id', $id)->get();
+        return view('frontend.category.products', compact('products'));
+    }
 }

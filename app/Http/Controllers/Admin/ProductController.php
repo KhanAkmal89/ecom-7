@@ -83,7 +83,7 @@ class ProductController extends Controller
         $name = time() . '.' . $request->image->getClientOriginalExtension();
         $request->image->move('product/' , $name);
         $product->image = $name;
-    
+
         }
 
         //Gallery images
@@ -112,21 +112,24 @@ class ProductController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Product updated successfully');
-        
+
     }
 
     public function deleteProduct($id)
     {
         $product = Product::find($id);
-        foreach(json_decode($product->gallery_image) as $file)
-            {
-                File::delete(public_path('product/' .$file));
+        foreach(json_decode($product->gallery_image) as $file){
+            if(public_path('/product/'.$file)){
+                unlink(public_path('/product/'.$file));
+                File::delete(public_path('/product/' .$file));
+            }
+
             }
         File::delete(public_path('product/' .$product->image));
         $product->delete();
 
         return redirect()->back()->with('success', 'Product has been deleted');
-        
+
     }
 
 
